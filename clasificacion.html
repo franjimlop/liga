@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clasificación</title>
+    <link rel="stylesheet" href="clasificacion.css" />
+    <link rel="icon" href="img/logo.png" type="image/x-icon" />
+</head>
+
+
+<body>
+    <header class="header">
+        <a href="index.html"><img src="img/logo.png" alt="Logo Liga" /></a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="clasificacion.html">Clasificación</a>
+            <a href="jornadas.html">Jornadas</a>
+            <a href="goleadores.html">Goleadores</a>
+            <a href="equipos.html">Equipos</a>
+        </nav>
+    </header>
+
+    <h2>Clasificación</h2>
+    <table id="standings-table">
+        <thead>
+            <tr>
+                <th>Pos</th>
+                <th>Equipo</th>
+                <th>Pts</th>
+                <th>PJ</th>
+                <th>PG</th>
+                <th>PE</th>
+                <th>PP</th>
+                <th>GF</th>
+                <th>GC</th>
+                <th>DG</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se llenarán las filas de la tabla -->
+        </tbody>
+    </table>
+
+    <ul class="legend">
+        <li><span class="champions"></span>Clasificación para la Champions League</li>
+        <li><span class="europa"></span>Clasificación para la Europa League</li>
+        <li><span class="conference"></span>Clasificación para la Conference League</li>
+        <li><span class="relegation"></span>Descenso</li>
+    </ul>
+
+    <script src="clasificacion.js"></script>
+</body>
+
+</html>
