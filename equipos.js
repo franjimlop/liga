@@ -71,33 +71,33 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Añadir el entrenador al principio de la lista
             const coachDiv = document.createElement("div");
             coachDiv.className = "coach";
-            coachDiv.innerHTML = `<strong>Entrenador:</strong> ${team.coach ? team.coach.name : "No disponible"}`;
+            coachDiv.innerHTML = `<h3>Entrenador: ${team.coach ? team.coach.name : "No disponible"}</h3>`;
             squadContainer.appendChild(coachDiv);
 
-            // Crear tablas para cada categoría de posición
+            // Crear listas para cada categoría de posición
             Object.entries(positionCategories).forEach(([category, positions]) => {
-                const table = document.createElement("table");
-                const caption = document.createElement("caption");
-                caption.textContent = category;
-                table.appendChild(caption);
+                // Crear el título de la categoría
+                const categoryTitle = document.createElement("h3");
+                categoryTitle.textContent = category;
+                squadContainer.appendChild(categoryTitle);
 
-                const tbody = document.createElement("tbody");
+                // Crear la lista (ul)
+                const ul = document.createElement("ul");
 
                 // Filtrar y ordenar jugadores por posición
                 positions.forEach(position => {
                     team.squad.filter(player => player.position === position).forEach(player => {
-                        const row = document.createElement("tr");
-                        const nameCell = document.createElement("td");
+                        // Crear un elemento de lista (li) para cada jugador
+                        const li = document.createElement("li");
+                        li.textContent = player.name;
 
-                        nameCell.textContent = player.name;
-
-                        row.appendChild(nameCell);
-                        tbody.appendChild(row);
+                        // Añadir el jugador a la lista
+                        ul.appendChild(li);
                     });
                 });
 
-                table.appendChild(tbody);
-                squadContainer.appendChild(table);
+                // Añadir la lista al contenedor
+                squadContainer.appendChild(ul);
             });
 
             // Añadir el contenedor de la plantilla al final de la tarjeta del equipo

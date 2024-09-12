@@ -66,24 +66,47 @@ document.addEventListener("DOMContentLoaded", async () => {
                 matchdayMatches.forEach(match => {
                     const row = document.createElement("tr");
 
+                    // Equipo local
                     const homeTeamCell = document.createElement("td");
                     homeTeamCell.innerHTML = `<img src="${match.homeTeam.crest}" alt="${match.homeTeam.name}" style="height: 30px; margin-right: 10px;"> ${match.homeTeam.name}`;
 
-                    const resultCell = document.createElement("td");
-                    resultCell.textContent = `${match.score.fullTime.home ?? '-'} - ${match.score.fullTime.away ?? '-'}`;
-
+                    // Equipo visitante
                     const awayTeamCell = document.createElement("td");
                     awayTeamCell.innerHTML = `<img src="${match.awayTeam.crest}" alt="${match.awayTeam.name}" style="height: 30px; margin-right: 10px;"> ${match.awayTeam.name}`;
 
+                    // Resultado del partido
+                    const resultCell = document.createElement("td");
+                    resultCell.textContent = `${match.score.fullTime.home ?? '-'} - ${match.score.fullTime.away ?? '-'}`;
+
+                    // Horario del partido
                     const dateCell = document.createElement("td");
                     const matchDate = new Date(match.utcDate);
                     dateCell.textContent = `${matchDate.toLocaleDateString()} ${matchDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
 
+                    // Determinar el color de fondo para los equipos según el resultado
+                    if (match.score.fullTime.home !== null && match.score.fullTime.away !== null) {
+                        if (match.score.fullTime.home > match.score.fullTime.away) {
+                            // Equipo local ganó
+                            homeTeamCell.style.backgroundColor = "#d4edda";
+                            awayTeamCell.style.backgroundColor = "#f8d7da";
+                        } else if (match.score.fullTime.home < match.score.fullTime.away) {
+                            // Equipo visitante ganó
+                            homeTeamCell.style.backgroundColor = "#f8d7da";
+                            awayTeamCell.style.backgroundColor = "#d4edda";
+                        } else {
+                            // Empate
+                            homeTeamCell.style.backgroundColor = "#fff3cd";
+                            awayTeamCell.style.backgroundColor = "#fff3cd";
+                        }
+                    }
+
+                    // Agregar las celdas a la fila
                     row.appendChild(homeTeamCell);
                     row.appendChild(resultCell);
                     row.appendChild(awayTeamCell);
                     row.appendChild(dateCell);
 
+                    // Agregar la fila al cuerpo de la tabla
                     tbody.appendChild(row);
                 });
 

@@ -1,15 +1,57 @@
-/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
     margin: 0;
-    padding: 0;
-    background-color: #ff4b44;
 }
 
 h1, h2 {
-    background-color: #fff;
     text-align: center;
-    color: #333;
+    color: #ff4b44;
+    font-size: 2.5rem;
+}
+
+h3 {
+    text-align: center;
+}
+
+li{
+    padding: 5px 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 10px;
+}
+
+.header img {
+    height: 75px;
+    vertical-align: middle;
+    padding: 15px 10px 15px 30px;
+}
+
+.header nav {
+    display: flex;
+    gap: 50px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-size: larger;
+    background-color: #ff4b44;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.header nav a:hover {
+    background-color: #a0110f;
+    color: white;
 }
 
 /* Contenedor de los equipos */
@@ -23,7 +65,8 @@ h1, h2 {
 
 /* Tarjeta del equipo */
 .team-card {
-    background-color: #fff;
+    background-color: #333;
+    color: white;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 22%;
@@ -63,13 +106,14 @@ h1, h2 {
 
 .team-info {
     margin-top: 5px;
-    color: #555;
+    color: white;
     text-align: center;
 }
 
 /* Columna derecha del equipo */
 .stadium-info {
     max-width: 45%;
+    font-size: 1.2em;
     text-align: center;
 }
 
@@ -85,34 +129,220 @@ h1, h2 {
     margin-top: 20px;
 }
 
-/* Estilo de las tablas */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-table caption {
-    font-weight: bold;
-    margin-bottom: 10px;
-    font-size: 1.2em;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-}
-
-td {
-    background-color: #ff4b44;
-}
-
 .coach {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-weight: bold;
+}
+
+/* Para pantallas medianas grandes (1024px a 1550px) */
+@media (min-width: 1024px) and (max-width: 1550px) {
+    h1, h2 {
+        text-align: center;
+        color: #ff4b44;
+        font-size: 2rem;
+    }
+    
+    /* Tarjeta del equipo */
+    .team-card {
+        background-color: #333;
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 25%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .team-name {
+        font-size: 1.3em;
+        margin: 10px 0;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .team-info {
+        margin-top: 5px;
+        color: white;
+        text-align: center;
+    }
+    
+    /* Columna derecha del equipo */
+    .stadium-info {
+        max-width: 50%;
+        font-size: 1.1em;
+        text-align: center;
+    }
+
+    li{
+        padding: 4px 0;
+    }
+    
+    .coach {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+}
+
+/* Para pantallas medianas (601px a 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    h1, h2 {
+        text-align: center;
+        color: #ff4b44;
+        font-size: 1.5rem;
+    }
+    
+    li{
+        padding: 3px 0;
+    }
+    
+    .header img {
+        height: 50px;
+        vertical-align: middle;
+        padding: 10px 25px 10px 10px;
+    }
+    
+    .header nav {
+        display: flex;
+        gap: 20px;
+        flex-grow: 1;
+        justify-content: center;
+    }
+    
+    .header nav a {
+        color: white;
+        text-decoration: none;
+        padding: 4px 6px;
+        font-size: medium;
+        background-color: #ff4b44;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    
+    .header nav a:hover {
+        background-color: #a0110f;
+        color: white;
+    }
+    
+    /* Tarjeta del equipo */
+    .team-card {
+        background-color: #333;
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 40%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .team-left img {
+        max-width: 50px;
+        max-height: 50px;
+    }
+    
+    .team-name {
+        font-size: 1.3em;
+        margin: 10px 0;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .team-info {
+        margin-top: 5px;
+        color: white;
+        text-align: center;
+    }
+    
+    .stadium-info {
+        max-width: 45%;
+        font-size: 1.2em;
+        text-align: center;
+    }
+    
+    .stadium-info img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+}
+
+/* Para pantallas pequeñas (menos de 600px de ancho) */
+@media (max-width: 600px) {
+    h1, h2 {
+        text-align: center;
+        color: #ff4b44;
+        font-size: 2rem;
+        margin-bottom: 5px;
+    }
+    
+    li{
+        padding: 2px 0;
+    }
+    
+    .header img {
+        height: 50px;
+        vertical-align: middle;
+        padding: 10px 20px 10px 10px;
+    }
+    
+    .header nav {
+        display: flex;
+        gap: 15px;
+        flex-grow: 1;
+        justify-content: center;
+    }
+    
+    .header nav a {
+        color: white;
+        text-decoration: none;
+        padding: 4px 6px;
+        font-size: small;
+        background-color: #ff4b44;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    
+    /* Tarjeta del equipo */
+    .team-card {
+        background-color: #333;
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .team-left img {
+        max-width: 75px;
+        max-height: 75px;
+    }
+    
+    .team-name {
+        font-size: 1.5em;
+        margin: 10px 0;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .stadium-info {
+        max-width: 50%;
+        font-size: 1.5em;
+        text-align: center;
+    }
+    
+    .stadium-info img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
 }
